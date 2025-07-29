@@ -1,0 +1,6 @@
+@RebarPriceApi_HostAddress = http://localhost:5070
+
+GET {{RebarPriceApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
