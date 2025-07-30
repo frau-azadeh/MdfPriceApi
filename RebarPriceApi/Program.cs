@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RebarPriceApi.Data;
+using RebarPriceApi.Data.Seed;
 namespace RebarPriceApi
 {
     public class Program
@@ -24,6 +25,11 @@ namespace RebarPriceApi
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+            }
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<RebarDbContext>();
+                ProductSeeder.SeedProducts(dbContext);
             }
 
             app.UseHttpsRedirection();
