@@ -24,7 +24,7 @@ namespace RebarPriceApi.Migrations
                     Standard = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Warehouse = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Unit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    price = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     LastPriceDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

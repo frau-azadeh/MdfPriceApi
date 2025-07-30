@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RebarPriceApi.Data;
@@ -21,12 +20,28 @@ namespace RebarPriceApi.Controllers
             _context = context;
         }
 
-        // GET: api/Products
+        //  GET: api/Products 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+                .OrderByDescending(p => p.LastPriceDate)
+                .ToListAsync();
         }
+
+        //  GET: api/Products/latest 
+        [HttpGet("latest")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetLatestProducts()
+        {
+            var latestDate = await _context.Products.MaxAsync(p => p.LastPriceDate);
+            var latestProducts = await _context.Products
+                .Where(p => p.LastPriceDate == latestDate)
+                .ToListAsync();
+
+            return Ok(latestProducts);
+        }
+
+
 
         // GET: api/Products/5
         [HttpGet("{id}")]
@@ -43,7 +58,6 @@ namespace RebarPriceApi.Controllers
         }
 
         // PUT: api/Products/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -74,7 +88,6 @@ namespace RebarPriceApi.Controllers
         }
 
         // POST: api/Products
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {

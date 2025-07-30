@@ -41,6 +41,9 @@ namespace RebarPriceApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,9 +63,6 @@ namespace RebarPriceApi.Migrations
                     b.Property<string>("Warehouse")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("price")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
