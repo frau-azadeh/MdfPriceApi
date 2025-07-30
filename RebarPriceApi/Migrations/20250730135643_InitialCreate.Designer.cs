@@ -12,8 +12,8 @@ using RebarPriceApi.Data;
 namespace RebarPriceApi.Migrations
 {
     [DbContext(typeof(RebarDbContext))]
-    [Migration("20250730075758_UpdatePriceColumnToDecimal")]
-    partial class UpdatePriceColumnToDecimal
+    [Migration("20250730135643_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
