@@ -10,7 +10,7 @@
         public string Standard { get; set; }
         public string Warehouse { get; set; }
         public string Unit { get; set; }
-        public int price { get; set; }
+        public decimal Price { get; set; }
         public DateTime LastPriceDate { get; set; }
     }
 }
