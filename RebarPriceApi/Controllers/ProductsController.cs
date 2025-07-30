@@ -33,14 +33,15 @@ namespace RebarPriceApi.Controllers
         [HttpGet("latest")]
         public async Task<ActionResult<IEnumerable<Product>>> GetLatestProducts()
         {
+            var latestDate = await _context.Products.MaxAsync(p => p.LastPriceDate);
             var latestProducts = await _context.Products
-                .GroupBy(p => p.Name)
-                .Select(g => g.OrderByDescending(p => p.LastPriceDate).FirstOrDefault())
-                .OrderByDescending(p => p.LastPriceDate)
+                .Where(p => p.LastPriceDate == latestDate)
                 .ToListAsync();
 
             return Ok(latestProducts);
         }
+
+
 
         // GET: api/Products/5
         [HttpGet("{id}")]
