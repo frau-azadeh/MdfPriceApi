@@ -19,7 +19,7 @@ namespace RebarPriceApi
             builder.Services.AddDbContext<RebarDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // ✅ اضافه کردن CORS
+            //  اضافه کردن CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowFrontend",
@@ -33,7 +33,7 @@ namespace RebarPriceApi
 
             var app = builder.Build();
 
-            // ✅ اجرای Seed Data
+            //  اجرای Seed Data
             using (var scope = app.Services.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<RebarDbContext>();
@@ -49,7 +49,7 @@ namespace RebarPriceApi
 
             app.UseHttpsRedirection();
 
-            // ✅ فعال کردن CORS
+            //  فعال کردن CORS
             app.UseCors("AllowFrontend");
 
             app.UseAuthorization();
