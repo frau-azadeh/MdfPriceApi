@@ -139,6 +139,29 @@ namespace RebarPriceApi.Controllers
             }
         }
 
+        // python refer api analyze-latest
+        [HttpGet("analyze-latest")]
+        public async Task<IActionResult> AnalyzeLatestProducts()
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                
+                var pythonApiUrl = "http://127.0.0.1:8000/analyze-latest";
+
+                var response = await httpClient.GetAsync(pythonApiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var result = await response.Content.ReadAsStringAsync();
+                return Content(result, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"خطا در ارتباط با سرویس تحلیل (آخرین رکورد): {ex.Message}");
+            }
+        }
+
+
 
     }
 }
