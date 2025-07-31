@@ -41,8 +41,6 @@ namespace RebarPriceApi.Controllers
             return Ok(latestProducts);
         }
 
-
-
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
@@ -161,10 +159,6 @@ namespace RebarPriceApi.Controllers
                 return StatusCode(500, $"خطا در ارتباط با سرویس تحلیل (آخرین رکورد): {ex.Message}");
             }
         }
-
-
-
-
 
     }
 }
