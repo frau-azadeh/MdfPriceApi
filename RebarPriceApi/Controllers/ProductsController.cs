@@ -146,7 +146,8 @@ namespace RebarPriceApi.Controllers
             try
             {
                 using var httpClient = new HttpClient();
-                
+                httpClient.Timeout = TimeSpan.FromSeconds(120);
+
                 var pythonApiUrl = "http://127.0.0.1:8000/analyze-latest";
 
                 var response = await httpClient.GetAsync(pythonApiUrl);
@@ -160,6 +161,8 @@ namespace RebarPriceApi.Controllers
                 return StatusCode(500, $"خطا در ارتباط با سرویس تحلیل (آخرین رکورد): {ex.Message}");
             }
         }
+
+
 
 
 
