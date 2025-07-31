@@ -20,7 +20,7 @@ namespace RebarPriceApi.Controllers
             _context = context;
         }
 
-        //  GET: api/Products 
+        // GET: api/Products 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -29,7 +29,7 @@ namespace RebarPriceApi.Controllers
                 .ToListAsync();
         }
 
-        //  GET: api/Products/latest 
+        //GET: api/Products/latest 
         [HttpGet("latest")]
         public async Task<ActionResult<IEnumerable<Product>>> GetLatestProducts()
         {
@@ -41,9 +41,7 @@ namespace RebarPriceApi.Controllers
             return Ok(latestProducts);
         }
 
-
-
-        // GET: api/Products/5
+        //GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -57,7 +55,7 @@ namespace RebarPriceApi.Controllers
             return product;
         }
 
-        // PUT: api/Products/5
+        //PUT: api/Products/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -87,7 +85,7 @@ namespace RebarPriceApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Products
+        //POST: api/Products
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
@@ -97,7 +95,7 @@ namespace RebarPriceApi.Controllers
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
-        // DELETE: api/Products/5
+        //DELETE: api/Products/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -161,10 +159,6 @@ namespace RebarPriceApi.Controllers
                 return StatusCode(500, $"خطا در ارتباط با سرویس تحلیل (آخرین رکورد): {ex.Message}");
             }
         }
-
-
-
-
 
     }
 }
