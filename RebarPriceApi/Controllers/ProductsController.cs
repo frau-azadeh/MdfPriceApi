@@ -117,5 +117,28 @@ namespace RebarPriceApi.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+        // Python: api/products/analyze
+        [HttpGet("analyze")]
+        public async Task<IActionResult> AnalyzeProducts()
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                // python refer api
+                var pythonApiUrl = "http://127.0.0.1:8000/analyze";
+
+                var response = await httpClient.GetAsync(pythonApiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var result = await response.Content.ReadAsStringAsync();
+                return Content(result, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"خطا در ارتباط با سرویس تحلیل: {ex.Message}");
+            }
+        }
+
+
     }
 }
