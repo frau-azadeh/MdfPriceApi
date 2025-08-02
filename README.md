@@ -1,5 +1,5 @@
 
-# 🏭 Rebar Price API
+# 🏭 MDF Price API
 
 ![C#](https://img.shields.io/badge/C%23-ASP.NET%20Core-512BD4?logo=dotnet)
 ![REST API](https://img.shields.io/badge/API-REST-blue)
@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-orange)
 
 ## 🚀 Overview
-Rebar Price API is a **.NET Core backend service** that exposes structured endpoints for retrieving rebar product pricing data.  
+MDF Price API is a **.NET Core backend service** that exposes structured endpoints for retrieving rebar product pricing data.  
 It provides the raw data consumed by the analysis and dashboard services.
 
 ---
@@ -39,7 +39,7 @@ It provides the raw data consumed by the analysis and dashboard services.
 ## ⚙️ Installation
 
 # Clone the repo
-git clone https://github.com/frau-azadeh/RebarPriceApi.git
+git clone https://github.com/frau-azadeh/MdfPriceApi.git
 cd RebarPriceApi
 
 # Restore dependencies
