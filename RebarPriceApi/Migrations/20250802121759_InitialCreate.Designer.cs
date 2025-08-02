@@ -12,7 +12,7 @@ using RebarPriceApi.Data;
 namespace RebarPriceApi.Migrations
 {
     [DbContext(typeof(RebarDbContext))]
-    [Migration("20250730135643_InitialCreate")]
+    [Migration("20250802121759_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
