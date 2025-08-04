@@ -39,14 +39,14 @@ It provides the raw data consumed by the analysis and dashboard services.
 ## ⚙️ Installation
 
 # Clone the repo
-git clone https://github.com/frau-azadeh/MdfPriceApi.git
-cd RebarPriceApi
+    git clone https://github.com/frau-azadeh/MdfPriceApi.git
+    cd RebarPriceApi
 
 # Restore dependencies
-dotnet restore
+    dotnet restore
 
 # Run the API
-dotnet run
+    dotnet run
 
 ---
 
