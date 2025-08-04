@@ -40,7 +40,7 @@ It provides the raw data consumed by the analysis and dashboard services.
 
 # Clone the repo
     git clone https://github.com/frau-azadeh/MdfPriceApi.git
-    cd RebarPriceApi
+    cd MdfPriceApi
 
 # Restore dependencies
     dotnet restore
